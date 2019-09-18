@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-9-18 20:48:11 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.sasu.entity.StudentInfo" table="student_info">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="stu_number" type="java.lang.String">
+            <column name="stu_number" />
+        </property>
+        <many-to-one name="user" class="com.sasu.entity.UserInfo" fetch="join">
+            <column name="u_id" />
+        </many-to-one>
+        <property name="stu_name" type="java.lang.String">
+            <column name="stu_name" />
+        </property>
+        <property name="stu_sex" type="java.lang.String">
+            <column name="stu_sex" />
+        </property>
+        <property name="stu_phone" type="java.lang.String">
+            <column name="stu_phone" />
+        </property>
+        <property name="stu_grade" type="int">
+            <column name="stu_grade" />
+        </property>
+        <property name="stu_photofile" type="java.lang.String">
+            <column name="stu_photofile" />
+        </property>
+        <property name="stu_parent" type="java.lang.String">
+            <column name="stu_parent" />
+        </property>
+        <property name="stu_parentPhone" type="java.lang.String">
+            <column name="stu_parent_phone" />
+        </property>
+        <property name="stu_home_adrress" type="java.lang.String">
+            <column name="stu_home_adrress" />
+        </property>
+        <many-to-one name="clazz" class="com.sasu.entity.ClazzInfo" fetch="join">
+            <column name="clazz_id" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

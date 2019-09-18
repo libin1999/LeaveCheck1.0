@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-9-18 20:48:11 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.sasu.entity.CollegeLeaderInfo" table="college_leader_info">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="leader_account" type="int">
+            <column name="l_account" />
+        </property>
+        <many-to-one name="user" class="com.sasu.entity.UserInfo" fetch="join">
+            <column name="u_id" />
+        </many-to-one>
+        <property name="leader_name" type="java.lang.String">
+            <column name="l_name" />
+        </property>
+        <property name="leader_sex" type="java.lang.String">
+            <column name="l_sex" />
+        </property>
+        <many-to-one name="college" class="com.sasu.entity.CollegeInfo" fetch="join">
+            <column name="college_id" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

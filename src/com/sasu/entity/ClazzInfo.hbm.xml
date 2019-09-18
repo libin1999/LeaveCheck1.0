@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-9-18 20:48:11 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.sasu.entity.ClazzInfo" table="clazz_info">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="clazz_name" type="java.lang.String">
+            <column name="clazz_name" />
+        </property>
+        <property name="clazz_sequence" type="int">
+            <column name="clazz_sequence" />
+        </property>
+        <many-to-one name="major" class="com.sasu.entity.MajorInfo" fetch="join">
+            <column name="major_id" />
+        </many-to-one>
+        <many-to-one name="teacher" class="com.sasu.entity.TeacherInfo" fetch="join">
+            <column name="Teacher_id" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

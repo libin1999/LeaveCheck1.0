@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-9-18 20:48:11 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.sasu.entity.TimeSheet" table="time_sheet">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="teacher" class="com.sasu.entity.TeacherInfo" fetch="join">
+            <column name="teacher_id" />
+        </many-to-one>
+        <many-to-one name="student" class="com.sasu.entity.StudentInfo" fetch="join">
+            <column name="student_id" />
+        </many-to-one>
+        <property name="record_item" type="java.lang.String">
+            <column name="record_item" />
+        </property>
+        <property name="record_date" type="java.lang.String">
+            <column name="record_date" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-9-18 20:48:11 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.sasu.entity.LeaveInfo" table="leave_info">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="student" class="com.sasu.entity.StudentInfo" fetch="join">
+            <column name="student_id" />
+        </many-to-one>
+        <property name="record_item" type="java.lang.String">
+            <column name="record_item" />
+        </property>
+        <property name="leave_reason" type="java.lang.String">
+            <column name="leave_reason" />
+        </property>
+        <property name="leave_begin" type="java.lang.String">
+            <column name="leave_begin" />
+        </property>
+        <property name="leave_end" type="java.lang.String">
+            <column name="leave_end" />
+        </property>
+        <property name="record_status" type="int">
+            <column name="record_status" />
+        </property>
+        <property name="record_date" type="java.lang.String">
+            <column name="record_date" />
+        </property>
+    </class>
+</hibernate-mapping>

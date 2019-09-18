@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-9-18 20:48:11 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.sasu.entity.LessonInfo" table="lesson_info">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="course" class="com.sasu.entity.CourseInfo" fetch="join">
+            <column name="course_id" />
+        </many-to-one>
+        <many-to-one name="clazz" class="com.sasu.entity.ClazzInfo" fetch="join">
+            <column name="clazz_id" />
+        </many-to-one>
+        <many-to-one name="teacher" class="com.sasu.entity.TeacherInfo" fetch="join">
+            <column name="teacher_id" />
+        </many-to-one>
+        <property name="weekday" type="int">
+            <column name="weekday" />
+        </property>
+        <many-to-one name="clazz_begin" class="com.sasu.entity.WorkRestInfo" fetch="join">
+            <column name="clazz_begin" />
+        </many-to-one>
+        <many-to-one name="clazz_over" class="com.sasu.entity.WorkRestInfo" fetch="join">
+            <column name="clazz_over" />
+        </many-to-one>
+        <property name="clazz_room" type="java.lang.String">
+            <column name="clazz_room" />
+        </property>
+    </class>
+</hibernate-mapping>

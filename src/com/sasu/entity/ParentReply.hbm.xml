@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-9-18 20:48:11 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.sasu.entity.ParentReply" table="parent_reply_info">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="content" type="java.lang.String">
+            <column name="content" />
+        </property>
+        <many-to-one name="leave" class="com.sasu.entity.LeaveInfo" fetch="join">
+            <column name="leave_id" />
+        </many-to-one>
+        <property name="record_time" type="java.lang.String">
+            <column name="record_time" />
+        </property>
+    </class>
+</hibernate-mapping>
