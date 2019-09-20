@@ -8,11 +8,11 @@
             <column name="id" />
             <generator class="identity" />
         </id>
-        <property name="role_id" type="int">
+        <many-to-one name="role_id" class="com.sasu.entity.RoleInfo" fetch="join">
             <column name="role_id" />
-        </property>
-        <property name="url_id" type="int">
+        </many-to-one>
+        <many-to-one name="url_id" class="com.sasu.entity.OptUrl" fetch="join">
             <column name="url_id" />
-        </property>
+        </many-to-one>
     </class>
 </hibernate-mapping>
