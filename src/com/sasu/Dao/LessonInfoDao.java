@@ -1,22 +1,20 @@
 package com.sasu.Dao;
 
-import java.util.List;
-
 import org.hibernate.Session;
+
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 
 import com.sasu.Util.HibernateSessionFactory;
-import com.sasu.entity.ClazzInfo;
+import com.sasu.entity.LessonInfo;
 
-public class ClazzDao {
+public class LessonInfoDao {
 	
-	public ClazzInfo getClazzById(int id) {
+	public LessonInfo getLessonById(int id) {
 		Session session=HibernateSessionFactory.getSession();
-		return session.get(ClazzInfo.class,id);
+		return session.get(LessonInfo.class,id);
 	}
 	
-	public void save(ClazzInfo info) {
+	public void save(LessonInfo info) {
 		Session session=HibernateSessionFactory.getSession();
 		Transaction t=session.beginTransaction();//开启事物
 		session.save(info);
@@ -24,7 +22,7 @@ public class ClazzDao {
 		session.close();//关闭session对象
 	}
 	
-	public void update(ClazzInfo info) {
+	public void update(LessonInfo info) {
 		Session session=HibernateSessionFactory.getSession();
 		Transaction t=session.beginTransaction();
 		session.update(info);
@@ -32,22 +30,11 @@ public class ClazzDao {
 		session.close();
 	}
 	
-	public void delete(ClazzInfo info) {
-		System.out.println(info.getClazz_name());
+	public void delete(LessonInfo info) {
 		Session session=HibernateSessionFactory.getSession();
 		Transaction t=session.beginTransaction();
 		session.delete(info);
 		t.commit();
 		session.close();
-	}
-	
-	public List<ClazzInfo> getClazzs(){
-		Session session=HibernateSessionFactory.getSession();
-		Transaction t=session.beginTransaction();
-		String hql="from ClazzInfo";			//注意：hql语句是面向对象编写的，并非面向数据表查询
-		List<ClazzInfo> list=session.createQuery(hql).list();
-		t.commit();
-		session.close();
-		return list;
 	}
 }
